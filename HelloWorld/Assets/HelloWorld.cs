@@ -19,5 +19,21 @@ public class HelloWorld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Debug.Log("UpArrow key press");
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Debug.Log("DownArrow key press");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("Enter key press");
+        }
+
     }
 }
