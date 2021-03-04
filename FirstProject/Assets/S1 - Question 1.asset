@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8264f906b70b0498b0067a040b17ea, type: 3}
+  m_Name: S1 - Question 1
+  m_EditorClassIdentifier: 
+  nodeTitle: S1 - PREG 1
+  nodeContent: "Quien creo la herramienta GIT y para qu\xE9?\r\n\r\n(1) Mark SuckerVergo
+    para su monopolio de 'LibroCara'\r\n(2) Nikola Tesla para controlar las versiones
+    de los campos el\xE9ctricos.\r\n\r(3) Linus Torvals, no contento con los controladores
+    de versiones desaroll\xF3 su el suyo propio para mantener el c\xF3digo complejo
+    del Kernel de Linux.\r\n\r(4) Fidel Castro, un guru de la tecnologia se sent\xF3
+    un dia delante de un PC e hizo magia."
+  nextStates:
+  - {fileID: 11400000, guid: 16621eb9c8304fd4b951ce8a166473ae, type: 2}
+  solution: 3
