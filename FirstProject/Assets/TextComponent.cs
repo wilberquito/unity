@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,12 @@ public class TextComponent : MonoBehaviour
     [SerializeField] State firstState;
 
     State currentState;
+
+    int nQuestions = 0;
+    int nCorrect = 0;
+
+    List<Tuple<int, bool>> questions = new List<Tuple<int, bool>>();
+
 
 
     // Start is called before the first frame update
@@ -38,7 +45,29 @@ public class TextComponent : MonoBehaviour
 
         if (currentState.GetType() == typeof(QuestionState))
         {
-            PickAnswer();
+            int answer = PickAnswer();
+
+            if (answer != -1)
+            {
+                QuestionState question = Instantiate(currentState) as QuestionState;
+
+                if (question.GetSolution() == answer)
+                {
+                    questions.Add(new Tuple<int, bool>(nQuestions + 1, true));
+                    nCorrect += 1;
+                }
+                else
+                {
+                    questions.Add(new Tuple<int, bool>(nQuestions + 1, false));
+                }
+
+                nQuestions = questions.Count;
+
+                // pasamos al siguiente nodo
+                State[] branches = currentState.GetNextStates();
+                currentState = branches[0];
+            }
+
         }
         else
         {
@@ -50,22 +79,22 @@ public class TextComponent : MonoBehaviour
         nodeContent.text = currentState.GetNodeContent();
     }
 
-    void PickAnswer()
+    // devuelve un valor entre (1-4)
+    int PickAnswer()
     {
         int picks = 4;
 
         for (int i = 0; i < picks; i++)
         {
-
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
                 Debug.Log($"Pick {i + 1} selected");
 
-                // paso directamente al proximo nodo
-                State[] branches = currentState.GetNextStates();
-                currentState = branches[0];
+                return (i + 1);
             }
         }
+
+        return -1;
     }
 
     // esta función cogerá siempre la primera rama
