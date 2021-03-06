@@ -71,12 +71,27 @@ public class TextComponent : MonoBehaviour
         }
         else
         {
+
+            if (currentState.GetType() == typeof(StatisticsState))
+            {
+                StatisticsState stadistics = Instantiate(currentState) as StatisticsState;
+                string content = stadistics.RunStatistics(questions);
+                nodeContent.text = content;
+            }
+
             PickBranch();
+        }
+
+
+        if (currentState.GetType() != typeof(StatisticsState))
+        {
+            nodeContent.text = currentState.GetNodeContent();
         }
 
         nodeTitle.text = currentState.GetNodeTitle();
 
-        nodeContent.text = currentState.GetNodeContent();
+
+        Debug.Log(nodeContent.text);
     }
 
     // devuelve un valor entre (1-4)

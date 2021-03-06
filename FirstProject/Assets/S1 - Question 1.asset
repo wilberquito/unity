@@ -20,5 +20,5 @@ MonoBehaviour:
     del Kernel de Linux.\r\n\r(4) Fidel Castro, un guru de la tecnologia se sent\xF3
     un dia delante de un PC e hizo magia."
   nextStates:
-  - {fileID: 11400000, guid: 16621eb9c8304fd4b951ce8a166473ae, type: 2}
+  - {fileID: 11400000, guid: 94e1882e85fcc884e8427a68f1fd7af8, type: 2}
   solution: 3
