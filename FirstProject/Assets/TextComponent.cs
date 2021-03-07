@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TextComponent : MonoBehaviour
 {
 
-    [SerializeField] Text nodeTitle;
+    [SerializeField] TextMeshProUGUI nodeTitle;
     [SerializeField] Text nodeContent;
     [SerializeField] State firstState;
 
@@ -108,8 +109,6 @@ public class TextComponent : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
-                Debug.Log($"Pick {i + 1} selected");
-
                 return (i + 1);
             }
         }

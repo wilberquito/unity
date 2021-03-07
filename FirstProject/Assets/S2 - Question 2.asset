@@ -19,5 +19,6 @@ MonoBehaviour:
     que ve la computaci\xF3n como un conjunto de funciones, evitando as\xED la mutabilidad.\n\r(3)
     Paradigma de programaci\xF3n que extresa el como y no el que para resolver un
     problema.\n\r(4) Yo que s\xE9 bro."
-  nextStates: []
-  solution: 
+  nextStates:
+  - {fileID: 11400000, guid: 94e1882e85fcc884e8427a68f1fd7af8, type: 2}
+  solution: 1

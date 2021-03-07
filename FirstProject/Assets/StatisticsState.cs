@@ -35,13 +35,7 @@ public class StatisticsState : State
         }
         else if (nQuestions > 0)
         {
-            Debug.Log($"Corrects: {nCorrect}");
-            Debug.Log($"Questions: {nQuestions}");
-
             float rating = (float)nCorrect / (float)nQuestions * 100;
-
-            Debug.Log($"Rating: {rating}");
-
             text += $"You are { rating }% nerd\n\n";
         }
 
