@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8264f906b70b0498b0067a040b17ea, type: 3}
   m_Name: S1 - Question 1
   m_EditorClassIdentifier: 
-  nodeTitle: S1 - PREG 1
-  nodeContent: "Quien creo la herramienta GIT y para qu\xE9?\r\n\r\n(1) Mark SuckerVergo
-    para su monopolio de 'LibroCara'\r\n(2) Nikola Tesla para controlar las versiones
-    de los campos el\xE9ctricos.\r\n\r(3) Linus Torvals, no contento con los controladores
-    de versiones desaroll\xF3 su el suyo propio para mantener el c\xF3digo complejo
-    del Kernel de Linux.\r\n\r(4) Fidel Castro, un guru de la tecnologia se sent\xF3
-    un dia delante de un PC e hizo magia."
+  nodeTitle: PREGUNTA 1
+  nodeContent: "\xBFQuien creo la herramienta GIT y para qu\xE9?\r\n\r\n(1) Mark
+    SuckerVergo para su monopolio de 'LibroCara'\r\n(2) Nikola Tesla para controlar
+    las versiones de los campos el\xE9ctricos.\r\n\r(3) Linus Torvals, no contento
+    con los controladores de versiones desaroll\xF3 su el suyo propio para mantener
+    el c\xF3digo complejo del Kernel de Linux.\r\n\r(4) Fidel Castro, un guru de
+    la tecnologia se sent\xF3 un dia delante de un PC e hizo magia."
   nextStates:
-  - {fileID: 11400000, guid: 94e1882e85fcc884e8427a68f1fd7af8, type: 2}
+  - {fileID: 11400000, guid: 8e3a2de63ab02c746bf12b758ead42fd, type: 2}
   solution: 3

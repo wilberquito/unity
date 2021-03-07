@@ -19,29 +19,35 @@ public class StatisticsState : State
         {
             if (tupla.Item2)
             {
-                text += $"{tupla.Item1}. Yes!\n";
+                text += $"{tupla.Item1}. Yes!\n\n";
                 nCorrect += 1;
             }
             else
             {
-                text += $"{tupla.Item1}. No!\n";
+                text += $"{tupla.Item1}. No!\n\n";
             }
             nQuestions += 1;
         });
 
         if (nCorrect == 0 && nQuestions != 0)
         {
-            text += "You are not a nerd!\n\n";
+            text += "You fall everything, of course you are not a NeRd!\n\n";
         }
-        else
+        else if (nQuestions > 0)
         {
-            text += $"You are {nQuestions * 100 / nCorrect}% nerd\n\n";
+            Debug.Log($"Corrects: {nCorrect}");
+            Debug.Log($"Questions: {nQuestions}");
+
+            float rating = (float)nCorrect / (float)nQuestions * 100;
+
+            Debug.Log($"Rating: {rating}");
+
+            text += $"You are { rating }% nerd\n\n";
         }
 
         text += "Press (1) to restart game";
 
         return text;
-        //SetNodeContent(text);
     }
 
 }

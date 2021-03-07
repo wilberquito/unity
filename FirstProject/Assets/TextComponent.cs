@@ -13,25 +13,28 @@ public class TextComponent : MonoBehaviour
 
     State currentState;
 
-    int nQuestions = 0;
-    int nCorrect = 0;
+    int nQuestions;
 
-    List<Tuple<int, bool>> questions = new List<Tuple<int, bool>>();
+    List<Tuple<int, bool>> questions;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        OnStart();
+    }
 
+    void OnStart()
+    {
         currentState = firstState;
 
         nodeTitle.text = currentState.GetNodeTitle();
 
         nodeContent.text = currentState.GetNodeContent();
 
-        Debug.Log("Running...");
-
+        questions = new List<Tuple<int, bool>>();
+        nQuestions = 0;
     }
 
     // Update is called once per frame
@@ -42,6 +45,11 @@ public class TextComponent : MonoBehaviour
 
         // miro si el input es de tipo estado normal
         // o por el contrario si es un nodo de tipo pregunta
+
+        if (currentState == firstState)
+        {
+            OnStart();
+        }
 
         if (currentState.GetType() == typeof(QuestionState))
         {
@@ -54,7 +62,6 @@ public class TextComponent : MonoBehaviour
                 if (question.GetSolution() == answer)
                 {
                     questions.Add(new Tuple<int, bool>(nQuestions + 1, true));
-                    nCorrect += 1;
                 }
                 else
                 {
@@ -90,8 +97,6 @@ public class TextComponent : MonoBehaviour
 
         nodeTitle.text = currentState.GetNodeTitle();
 
-
-        Debug.Log(nodeContent.text);
     }
 
     // devuelve un valor entre (1-4)

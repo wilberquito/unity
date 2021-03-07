@@ -7,7 +7,7 @@ using UnityEngine;
 public class State : ScriptableObject
 {
     [TextArea(1, 1)] [SerializeField] string nodeTitle;
-    [TextArea(10, 12)] [SerializeField] string nodeContent = "jshdf9owjq";
+    [TextArea(10, 12)] [SerializeField] string nodeContent;
 
     [SerializeField] State[] nextStates;
 
