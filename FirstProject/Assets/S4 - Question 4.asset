@@ -15,5 +15,6 @@ MonoBehaviour:
   nodeTitle: "Pregunta 4\t\t"
   nodeContent: "Rapido, sin el uso de una calculador, \xBFcuanto es 2^10?\n\n(1)
     512\n(2) 1024\n(3) 1048\n(4) 548"
-  nextStates: []
+  nextStates:
+  - {fileID: 11400000, guid: 5b82ebdb7ed88dc48a9b6182b9cd45c7, type: 2}
   solution: 2

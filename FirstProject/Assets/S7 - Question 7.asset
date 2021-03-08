@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8264f906b70b0498b0067a040b17ea, type: 3}
   m_Name: S7 - Question 7
   m_EditorClassIdentifier: 
-  nodeTitle: 
-  nodeContent: 
-  nextStates: []
-  solution: 
+  nodeTitle: Pregunta 71
+  nodeContent: "\xBFQual de los siguientes rangos IP es de uso privado?\r\n\r\n(1)
+    10.0.0.0/24\r\n(2) 90.90.90.1/24\r\n(3) 194.168.0.0/24\r\n(4) 172.16.0.0/24"
+  nextStates:
+  - {fileID: 11400000, guid: 8725973f41523404eb3cae612a66d076, type: 2}
+  solution: 1

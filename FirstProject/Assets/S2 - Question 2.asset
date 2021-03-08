@@ -20,5 +20,5 @@ MonoBehaviour:
     Yo que s\xE9 bro.\n\r(4) Paradigma de programaci\xF3n que extresa el como y no
     el que para resolver un problema.\n"
   nextStates:
-  - {fileID: 11400000, guid: 94e1882e85fcc884e8427a68f1fd7af8, type: 2}
+  - {fileID: 11400000, guid: da76cf61d76e4664293d86e15c930db6, type: 2}
   solution: 1

@@ -19,5 +19,6 @@ MonoBehaviour:
     de redes basadas en Internet.\r\n(3) Protocolo orientado en transacciones y sigue
     el esquema cliente servidor. \r\n(4) Es un protocolo que corre en la capa de
     transporte, sirve para hacer transacciones."
-  nextStates: []
+  nextStates:
+  - {fileID: 11400000, guid: e040fae08c4b4a4489135ddf99dee8bc, type: 2}
   solution: 3

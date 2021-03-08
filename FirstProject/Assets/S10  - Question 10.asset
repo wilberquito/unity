@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8264f906b70b0498b0067a040b17ea, type: 3}
   m_Name: S10  - Question 10
   m_EditorClassIdentifier: 
-  nodeTitle: 
-  nodeContent: 
-  nextStates: []
-  solution: 
+  nodeTitle: Pregunta 10
+  nodeContent: "\xBFQu\xE9 es el Hardware?\r\n\r\n(1) Es la parte que recive los
+    golpes cuando el Software falla\r\n(2) Conjunto de elementos f\xEDsicos que conforman
+    un sistema\r\n(3) Una advertencia dura\r\n(4) La parte fea de la inform\xE1tica"
+  nextStates:
+  - {fileID: 11400000, guid: 94e1882e85fcc884e8427a68f1fd7af8, type: 2}
+  solution: 2

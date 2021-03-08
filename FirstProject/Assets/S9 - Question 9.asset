@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8264f906b70b0498b0067a040b17ea, type: 3}
   m_Name: S9 - Question 9
   m_EditorClassIdentifier: 
-  nodeTitle: 
-  nodeContent: 
-  nextStates: []
-  solution: 
+  nodeTitle: Pregunta 9
+  nodeContent: "\xBFQual de las siguientes afirmaciones es cierta?\r\n\r\n(1) El
+    problema de saber si un programa se ha colgado es Turing-Completo\r\n(2) El problema
+    de saber si un programa se ha colgado es Turing-Decidible\r\n(3) El problema
+    de saber si un programa se ha colgado no es Turing-Decidible\r\n(4) El problema
+    de saber si una palabra es aceptada por una maquina de Turing es Decidible\r\n"
+  nextStates:
+  - {fileID: 11400000, guid: c68ef9c8018c4f24eb7b9f6a4a89b326, type: 2}
+  solution: 3

@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8264f906b70b0498b0067a040b17ea, type: 3}
   m_Name: S6 - Question 6
   m_EditorClassIdentifier: 
-  nodeTitle: 
-  nodeContent: 
-  nextStates: []
-  solution: 
+  nodeTitle: "Pregunta 6\t"
+  nodeContent: "\xBFQuales son las dimenciones de la matriz resultantes de un producto
+    matricial entre una matriz de 3x2 y una de 3x2?\r\n\r\n(1) La matriz resultante
+    tiene dimenciones 3x2\r\n(2) La matriz resultante tiene dimenciones 2x3\r\n(3)
+    Esto no es posible\r\n(4) La matriz resultante siempre es un vector nulo"
+  nextStates:
+  - {fileID: 11400000, guid: 015b8784587d9a949875521408566daa, type: 2}
+  solution: 3
