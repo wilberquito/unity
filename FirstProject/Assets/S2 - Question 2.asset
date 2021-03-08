@@ -17,8 +17,8 @@ MonoBehaviour:
     programaci\xF3n que busca mantener la coherencia de los elementos de un sistema
     que dependen de fuente que envia cambios continuos.\n(2) Paradigma de programaci\xF3n
     que ve la computaci\xF3n como un conjunto de funciones, evitando as\xED la mutabilidad.\n\r(3)
-    Paradigma de programaci\xF3n que extresa el como y no el que para resolver un
-    problema.\n\r(4) Yo que s\xE9 bro."
+    Yo que s\xE9 bro.\n\r(4) Paradigma de programaci\xF3n que extresa el como y no
+    el que para resolver un problema.\n"
   nextStates:
   - {fileID: 11400000, guid: 94e1882e85fcc884e8427a68f1fd7af8, type: 2}
   solution: 1

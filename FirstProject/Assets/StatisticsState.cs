@@ -15,29 +15,36 @@ public class StatisticsState : State
 
         string text = "";
 
-        statistics.ForEach(tupla =>
+        if (statistics != null)
         {
-            if (tupla.Item2)
+            statistics.ForEach(tupla =>
             {
-                text += $"{tupla.Item1}. Yes!\n\n";
-                nCorrect += 1;
-            }
-            else
-            {
-                text += $"{tupla.Item1}. No!\n\n";
-            }
-            nQuestions += 1;
-        });
+                if (tupla.Item2)
+                {
+                    text += $"{tupla.Item1}. Yes!\n";
+                    nCorrect += 1;
+                }
+                else
+                {
+                    text += $"{tupla.Item1}. No!\n";
+                }
+                nQuestions += 1;
+            });
 
-        if (nCorrect == 0 && nQuestions != 0)
-        {
-            text += "You fall everything, of course you are not a NeRd!\n\n";
+            text += "\n";
+
+            if (nCorrect == 0 && nQuestions != 0)
+            {
+                text += "You fall everything, of course you are not a NeRd!\n\n";
+            }
+            else if (nQuestions > 0)
+            {
+                float rating = (float)nCorrect / (float)nQuestions * 100;
+                text += $"You are { rating }% nerd\n\n";
+            }
+
         }
-        else if (nQuestions > 0)
-        {
-            float rating = (float)nCorrect / (float)nQuestions * 100;
-            text += $"You are { rating }% nerd\n\n";
-        }
+
 
         text += "Press (1) to restart game";
 

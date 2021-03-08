@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8264f906b70b0498b0067a040b17ea, type: 3}
+  m_Name: S4 - Question 4
+  m_EditorClassIdentifier: 
+  nodeTitle: "Pregunta 4\t\t"
+  nodeContent: "Rapido, sin el uso de una calculador, \xBFcuanto es 2^10?\n\n(1)
+    512\n(2) 1024\n(3) 1048\n(4) 548"
+  nextStates: []
+  solution: 2
