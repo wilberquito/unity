@@ -16,8 +16,6 @@ public class GamePlayLogic : MonoBehaviour
     void Start()
     {
 
-        major += 1;
-
         nGuess = ComputeGuess(minor, major);
 
         PrintState();
@@ -32,25 +30,23 @@ public class GamePlayLogic : MonoBehaviour
 
     void PrintState()
     {
-        Debug.Log($"{minor}");
-        Debug.Log($"{major}");
-        Debug.Log($"{nGuess}");
+        Debug.Log($"minor: {minor}");
+        Debug.Log($"major: {major}");
+        Debug.Log($"guess: {nGuess}");
 
         guess.SetText(nGuess.ToString());
     }
 
     public void OnClickMajor()
     {
-        minor = nGuess;
-        nGuess = ComputeGuess(minor, major);
+        nGuess = ComputeGuess(nGuess, major);
 
         PrintState();
     }
 
     public void OnClickMinor()
     {
-        major = nGuess;
-        nGuess = ComputeGuess(minor, major);
+        nGuess = ComputeGuess(minor, nGuess);
 
         PrintState();
     }
@@ -58,7 +54,7 @@ public class GamePlayLogic : MonoBehaviour
 
     int ComputeGuess(int minor, int major)
     {
-        return (minor + major) / 2;
+        return Random.Range(minor, major + 1);
     }
 
 
