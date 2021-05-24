@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7547487358379046602}
   - component: {fileID: 7547487358379046601}
   m_Layer: 0
-  m_Name: Breakable Block
+  m_Name: 2 Hits breakable
   m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,6 +125,4 @@ MonoBehaviour:
   breakSound: {fileID: 8300000, guid: 6e887cf2ea3537f4bb4c11fbfc71dc38, type: 3}
   destroyAnimation: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
   sprites:
-  - {fileID: 21300000, guid: ef22e014ee66f9947b6a713e230a4d9e, type: 3}
-  - {fileID: 0}
-  maxHits: 2
+  - {fileID: 21300000, guid: 4021d0d621a0c854dade7b885f6ffaac, type: 3}

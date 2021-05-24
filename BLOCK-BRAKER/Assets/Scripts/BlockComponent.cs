@@ -8,19 +8,15 @@ public class BlockComponent : MonoBehaviour
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject destroyAnimation;
     [SerializeField] Sprite[] sprites;
-    [SerializeField] int maxHits = 3;
 
     TrackerComponents tracker;
 
-    int hitsReseived;
+    int hitsReseived = 0;
 
 
 
     private void Start()
     {
-
-        hitsReseived = 0;
-
         tracker = FindObjectOfType<TrackerComponents>();
 
         if (gameObject.tag == "Breakable")
@@ -49,6 +45,7 @@ public class BlockComponent : MonoBehaviour
             hitsReseived++;
             PlayClip(breakSound, Camera.main.transform.position);
 
+            int maxHits = sprites.Length + 1;
             if (hitsReseived >= maxHits)
             {
                 RunAnimation(destroyAnimation, gameObject.transform.position);
@@ -65,7 +62,6 @@ public class BlockComponent : MonoBehaviour
 
     private void NextHitSprite(int hitsReceived)
     {
-
         if (hitsReceived >= 1 && hitsReceived <= sprites.Length)
         {
             GetComponent<SpriteRenderer>().sprite = sprites[hitsReceived - 1];
@@ -73,6 +69,10 @@ public class BlockComponent : MonoBehaviour
         else if (hitsReseived >= 1 && sprites.Length > 0)
         {
             GetComponent<SpriteRenderer>().sprite = sprites[sprites.Length - 1];
+        }
+        else
+        {   
+            Debug.LogError($"The object; {gameObject.name}, has no sprites to use");
         }
     }
 
