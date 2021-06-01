@@ -6,10 +6,15 @@ public class PlayerScript : MonoBehaviour
 {
     //serialized variables
     [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float padding = 0.5f;
+    [SerializeField] GameObject lasser;
+    [SerializeField] float projectileSpeed = 10f;
+
 
     // class variables
     float minX, maxX;
     float minY, maxY;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,16 +25,26 @@ public class PlayerScript : MonoBehaviour
     void SetEdges()
     {
         var camera = Camera.main;
-        minX = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
-        maxX = camera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
-        minY = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
-        maxY = camera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
+        minX = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
+        maxX = camera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
+        minY = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
+        maxY = camera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
     // Update is called once per frame
     void Update()
     {
         MoveEngine();
+        Fire();
+    }
+
+    void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            var laser = Instantiate(lasser, transform.position, Quaternion.identity);
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+        }
     }
 
     void MoveEngine()
@@ -39,32 +54,19 @@ public class PlayerScript : MonoBehaviour
         // to make delta x independent from velocity of frames per second
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
 
-        // logic to horizontal movement
-        if (transform.position.x > minX && transform.position.x < maxX)
+        if (deltaX != 0)
         {
-            transform.position = new Vector2(transform.position.x + deltaX, transform.position.y);
+            var x = Mathf.Clamp(transform.position.x + deltaX, minX, maxX);
+            transform.position = new Vector2(x, transform.position.y);
+
         }
-        else if (transform.position.x < minX && deltaX > 0)
+        if (deltaY != 0)
         {
-            transform.position = new Vector2(transform.position.x + deltaX, transform.position.y);
-        }
-        else if (transform.position.x > maxX && deltaX < 0)
-        {
-            transform.position = new Vector2(transform.position.x + deltaX, transform.position.y);
+            var y = Mathf.Clamp(transform.position.y + deltaY, minY, maxY);
+            transform.position = new Vector2(transform.position.x, y);
+
         }
 
-        // logic to vertical movement
-        if (transform.position.y > minY && transform.position.y < maxY)
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y + deltaY);
-        }
-        else if (transform.position.y < minY && deltaY > 0)
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y + deltaY);
-        }
-        else if (transform.position.y > maxY && deltaY < 0)
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y + deltaY);
-        }
+        // logic to horizontal movement
     }
 }
