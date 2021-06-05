@@ -287,6 +287,10 @@ PrefabInstance:
       propertyPath: lasser
       value: 
       objectReference: {fileID: 1415550342425803475, guid: 8d88a6ff15c083e4b94e87f1817c0115, type: 3}
+    - target: {fileID: 1692556750513090749, guid: f9ac255faeac9b44cbe06aad0d1fd7cd, type: 3}
+      propertyPath: firePeriod
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1692556750513090750, guid: f9ac255faeac9b44cbe06aad0d1fd7cd, type: 3}
       propertyPath: m_RootOrder
       value: 4

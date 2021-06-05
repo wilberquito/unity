@@ -9,7 +9,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float padding = 0.5f;
     [SerializeField] GameObject lasser;
     [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] float blastPeriod = 0.1f;
 
+    Coroutine blastCoroutine;
 
     // class variables
     float minX, maxX;
@@ -40,10 +42,30 @@ public class PlayerScript : MonoBehaviour
 
     void Fire()
     {
+        // miro que el fire1 este activo y comienza una
+        // ejecucion infinita de la corritina de blast
         if (Input.GetButtonDown("Fire1"))
+        {
+            blastCoroutine = StartCoroutine(BlastCoroutine());
+        }
+
+        // la corutina cogida se elimina en caso de que el fire 1 no este activo
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(blastCoroutine);
+        }
+    }
+
+    //ejecucion directa
+    //await
+    //ejecucuion despues del await
+    IEnumerator BlastCoroutine()
+    {
+        while (true)
         {
             var laser = Instantiate(lasser, transform.position, Quaternion.identity);
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            yield return new WaitForSeconds(blastPeriod);
         }
     }
 
