@@ -98,3 +98,5 @@ MonoBehaviour:
   moveSpeed: 10
   padding: 0.5
   lasser: {fileID: 1415550342425803475, guid: 8d88a6ff15c083e4b94e87f1817c0115, type: 3}
+  projectileSpeed: 10
+  blastPeriod: 0.1
