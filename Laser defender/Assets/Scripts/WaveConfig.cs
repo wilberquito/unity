@@ -7,9 +7,10 @@ public class WaveConfig : ScriptableObject
 {
     [SerializeField] GameObject prefab;
     [SerializeField] GameObject path;
-    [SerializeField] float spawnGap = 0.5f;
+    [SerializeField] float timeGap = 0.5f;
     [SerializeField] float spawnFactor = 0.3f;
     [SerializeField] int waveLength = 5;
+    [SerializeField] float spawnMovementSpeed = 2f;
 
 
     public GameObject GetPrefab() { return prefab; }
@@ -25,8 +26,9 @@ public class WaveConfig : ScriptableObject
 
         return ls;
     }
-    public float GetSpawnGap() { return spawnGap; }
+    public float GetTimeGap() { return timeGap; }
     public float GetSpawnFactor() { return spawnFactor; }
     public int GetWaveLength() { return waveLength; }
+    public float GetSpawnMovementSpeed() { return spawnMovementSpeed; }
 
 }

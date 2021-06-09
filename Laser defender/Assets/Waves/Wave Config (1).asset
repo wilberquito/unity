@@ -17,3 +17,4 @@ MonoBehaviour:
   spawnGap: 0.5
   spawnFactor: 0.3
   waveLength: 5
+  spawnMovementSpeed: 6
