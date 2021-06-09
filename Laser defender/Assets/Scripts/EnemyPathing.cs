@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class EnemyPathing : MonoBehaviour
 {
-    [SerializeField] WaveConfig waveConfig;
+    WaveConfig waveConfig;
 
-    float movementSpeed = 0.5f;
-    List<Transform> waypoints;
+    float movementSpeed = 2f;
+    List<Transform> waypoints = new List<Transform>();
     int visitedPoints = 0;
+
+    public void SetWaveConfig(WaveConfig waveConfig)
+    {
+        this.waveConfig = waveConfig;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        waypoints = waveConfig.GetWayPoints();
-        //setteo la posicion incial
-        transform.position = waypoints[visitedPoints].transform.position;
-        visitedPoints++;
-
-        movementSpeed = waveConfig.GetSpawnMovementSpeed();
+        if (this.waveConfig == null)
+        {
+            throw new System.Exception("Wave config not defined");
+        }
+        else
+        {
+            movementSpeed = waveConfig.GetSpawnMovementSpeed();
+            waypoints = waveConfig.GetWayPoints();
+            //setteo la posicion incial
+            transform.position = waypoints[visitedPoints].transform.position;
+            visitedPoints++;
+        }
     }
 
     // Update is called once per frame
@@ -26,6 +37,8 @@ public class EnemyPathing : MonoBehaviour
     {
         Move();
     }
+
+
 
     private void Move()
     {

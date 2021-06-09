@@ -11,7 +11,17 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         var currentWave = this.wavesConfig[this.currentWave];
-        StartCoroutine(SpawnWave(currentWave));
+
+        StartCoroutine(SpawnWaves());
+    }
+
+    private IEnumerator SpawnWaves()
+    {
+        foreach (var wave in wavesConfig)
+        {
+            StartCoroutine(SpawnWave(wave));
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     private IEnumerator SpawnWave(WaveConfig wave)
@@ -21,10 +31,10 @@ public class EnemySpawner : MonoBehaviour
         {
             var timeGap = wave.GetTimeGap();
             var startPosition = wave.GetWayPoints()[0].transform.position;
+            var instance = Instantiate(wave.GetPrefab(), startPosition, Quaternion.identity);
 
+            instance.GetComponent<EnemyPathing>().SetWaveConfig(wave);
             yield return new WaitForSeconds(timeGap);
-            
-            Instantiate(wave.GetPrefab(), startPosition, Quaternion.identity);
         }
     }
 
