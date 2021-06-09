@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wave Config (1)
   m_EditorClassIdentifier: 
   prefab: {fileID: 8972090167900106016, guid: c4c4b6e5c12f692479e7b426fa8fbb58, type: 3}
-  path: {fileID: 6278325759271976450, guid: 9d26611bd1f804643947680629f315fd, type: 3}
-  spawnGap: 0.5
+  path: {fileID: 8878605970315430789, guid: 8d26f68bc7ebf024db9caa614216b634, type: 3}
+  timeGap: 0.5
   spawnFactor: 0.3
   waveLength: 5
   spawnMovementSpeed: 6

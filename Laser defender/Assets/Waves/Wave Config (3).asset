@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0cb51d3f10136247b10f459b651a81a, type: 3}
-  m_Name: Wave Config (2)
+  m_Name: Wave Config (3)
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8972090167900106016, guid: c4c4b6e5c12f692479e7b426fa8fbb58, type: 3}
-  path: {fileID: 6278325759271976450, guid: 9d26611bd1f804643947680629f315fd, type: 3}
+  prefab: {fileID: 7349571319615779588, guid: 4e7b1dece861f7948b9710bf1c3f90f6, type: 3}
+  path: {fileID: 6278325759271976450, guid: 029c7aace02abf54093ac03dc6ec40fa, type: 3}
   timeGap: 0.5
   spawnFactor: 0.3
   waveLength: 5

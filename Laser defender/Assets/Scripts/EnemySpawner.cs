@@ -19,8 +19,7 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var wave in wavesConfig)
         {
-            StartCoroutine(SpawnWave(wave));
-            yield return new WaitForSeconds(1f);
+            yield return StartCoroutine(SpawnWave(wave));
         }
     }
 
