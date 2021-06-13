@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] List<WaveConfig> wavesConfig;
-    int currentWave = 0;
+    [SerializeField] bool loop = false;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
-        var currentWave = this.wavesConfig[this.currentWave];
-
-        StartCoroutine(SpawnWaves());
+        do {
+            yield return StartCoroutine(SpawnWaves());
+        } while(loop);
     }
 
     private IEnumerator SpawnWaves()

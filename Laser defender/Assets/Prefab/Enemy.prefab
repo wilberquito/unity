@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8972090167900103390}
   - component: {fileID: 8972090167900103391}
   - component: {fileID: 146096800041155909}
+  - component: {fileID: 931629214}
+  - component: {fileID: 1375539192862170449}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -95,4 +97,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c4194d9bca7341914832bf8eb9916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfig: {fileID: 11400000, guid: e5dbb2cad83948a4da1b1f98c4df517a, type: 2}
+--- !u!60 &931629214
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972090167900106016}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.04, y: 0.84}
+    newSize: {x: 1.04, y: 0.84}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.26, y: -0.42}
+      - {x: 0.24101809, y: -0.42559305}
+      - {x: 0.2862637, y: -0.3010621}
+      - {x: 0.52, y: 0.03}
+      - {x: 0.52, y: 0.17999999}
+      - {x: 0.29, y: 0.26}
+      - {x: 0.17999999, y: 0.35999998}
+      - {x: 0.049999997, y: 0.42}
+      - {x: -0.08, y: 0.42}
+      - {x: -0.37, y: 0.22}
+      - {x: -0.52, y: 0.17999999}
+      - {x: -0.52779627, y: 0.02}
+      - {x: -0.43483877, y: -0.083034515}
+      - {x: -0.24661064, y: -0.39440742}
+      - {x: -0.25220346, y: -0.4122037}
+      - {x: -0.03, y: -0.42}
+      - {x: 0.03, y: -0.35}
+      - {x: 0.049999997, y: -0.42}
+--- !u!114 &1375539192862170449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972090167900106016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f358d98ed673f744d8bebe2fa00d7b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

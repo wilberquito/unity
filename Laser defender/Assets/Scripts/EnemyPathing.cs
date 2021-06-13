@@ -6,7 +6,7 @@ public class EnemyPathing : MonoBehaviour
 {
     WaveConfig waveConfig;
 
-    float movementSpeed = 2f;
+    //float movementSpeed = 2f;
     List<Transform> waypoints = new List<Transform>();
     int visitedPoints = 0;
 
@@ -18,18 +18,7 @@ public class EnemyPathing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (this.waveConfig == null)
-        {
-            throw new System.Exception("Wave config not defined");
-        }
-        else
-        {
-            movementSpeed = waveConfig.GetSpawnMovementSpeed();
-            waypoints = waveConfig.GetWayPoints();
-            //setteo la posicion incial
-            transform.position = waypoints[visitedPoints].transform.position;
-            visitedPoints++;
-        }
+
     }
 
     // Update is called once per frame
@@ -39,25 +28,28 @@ public class EnemyPathing : MonoBehaviour
     }
 
 
-
     private void Move()
     {
-        if (visitedPoints < waypoints.Count)
+        if (waveConfig)
         {
-            var step = Time.deltaTime * movementSpeed;
-            var currentPos = transform.position;
-            var nextPos = waypoints[visitedPoints].transform.position;
-
-            transform.position = Vector2.MoveTowards(currentPos, nextPos, step);
-
-            if (transform.position == nextPos)
+            if (visitedPoints < waveConfig.GetWayPoints().Count)
             {
-                visitedPoints++;
+                var step = Time.deltaTime * waveConfig.GetSpawnMovementSpeed(); ;
+                var currentPos = transform.position;
+                var nextPos = waveConfig.GetWayPoints()[visitedPoints].transform.position;
+
+                transform.position = Vector2.MoveTowards(currentPos, nextPos, step);
+
+                if (transform.position == nextPos)
+                {
+                    visitedPoints++;
+                }
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
     }
 }
