@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    //serialized variables
+    [Header("Player")]
     [SerializeField] float moveSpeed = 10f;
+    [SerializeField] int health = 200;
     [SerializeField] float padding = 0.5f;
+
+    [Header("Player projectile")]
     [SerializeField] GameObject lasser;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float blastPeriod = 0.1f;
@@ -31,6 +34,34 @@ public class PlayerScript : MonoBehaviour
         maxX = camera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
         minY = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         maxY = camera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
+    }
+
+
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var lanzador = other.gameObject.GetComponent<Lanzador>().GetLanzador();
+
+        if (lanzador != gameObject)
+        {
+            // si el laser que me llega es diferente al mio
+            var laser = other.gameObject.GetComponent<DemageDealer>();
+            if (laser)
+            {
+                Hit(laser.Demage());
+            }
+        }
+    }
+
+    private void Hit(int demage)
+    {
+        health -= demage;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -64,6 +95,7 @@ public class PlayerScript : MonoBehaviour
         while (true)
         {
             var laser = Instantiate(lasser, transform.position, Quaternion.identity);
+            laser.GetComponent<Lanzador>().SetLanzador(gameObject);
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             yield return new WaitForSeconds(blastPeriod);
         }
