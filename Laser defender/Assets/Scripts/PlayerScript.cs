@@ -36,9 +36,6 @@ public class PlayerScript : MonoBehaviour
         maxY = camera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
-
-
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         var lanzador = other.gameObject.GetComponent<Lanzador>().GetLanzador();

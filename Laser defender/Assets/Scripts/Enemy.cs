@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
     }
 
 
-
     private void Update()
     {
         TriggerFire();
@@ -49,11 +48,17 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var laser = other.gameObject.GetComponent<DemageDealer>();
 
-        if (laser)
+        var lanzador = other.gameObject.GetComponent<Lanzador>().GetLanzador();
+
+        if (lanzador != gameObject)
         {
-            Hit(laser.Demage());
+            var laser = other.gameObject.GetComponent<DemageDealer>();
+
+            if (laser)
+            {
+                Hit(laser.Demage());
+            }
         }
     }
 
