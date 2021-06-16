@@ -38,15 +38,16 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var lanzador = other.gameObject.GetComponent<Lanzador>().GetLanzador();
+        var hero = other.gameObject.GetComponent<Lanzador>().ThrowByHero();
 
-        if (lanzador != gameObject)
+        if (!hero)
         {
             // si el laser que me llega es diferente al mio
             var laser = other.gameObject.GetComponent<DemageDealer>();
             if (laser)
             {
                 Hit(laser.Demage());
+                Destroy(other.gameObject);
             }
         }
     }
@@ -92,7 +93,7 @@ public class PlayerScript : MonoBehaviour
         while (true)
         {
             var laser = Instantiate(lasser, transform.position, Quaternion.identity);
-            laser.GetComponent<Lanzador>().SetLanzador(gameObject);
+            laser.GetComponent<Lanzador>().ThrowByHero(true);
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             yield return new WaitForSeconds(blastPeriod);
         }

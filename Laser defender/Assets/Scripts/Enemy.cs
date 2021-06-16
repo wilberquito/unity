@@ -40,24 +40,22 @@ public class Enemy : MonoBehaviour
     IEnumerator Fire()
     {
         var laser = Instantiate(this.laser, gameObject.transform.position, Quaternion.identity);
-        laser.GetComponent<Lanzador>().SetLanzador(gameObject);
+        laser.GetComponent<Lanzador>().ThrowByHero(false);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -laserSpeed);
-
+        
         yield return new WaitForSeconds(0.1f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        var lanzador = other.gameObject.GetComponent<Lanzador>().GetLanzador();
-
-        if (lanzador != gameObject)
+        var hero = other.gameObject.GetComponent<Lanzador>().ThrowByHero();
+        if (hero)
         {
             var laser = other.gameObject.GetComponent<DemageDealer>();
-
             if (laser)
             {
                 Hit(laser.Demage());
+                Destroy(other.gameObject);
             }
         }
     }

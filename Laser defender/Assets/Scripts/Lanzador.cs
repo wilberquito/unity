@@ -6,15 +6,15 @@ public class Lanzador : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    GameObject lanzador;
+    private bool _throwByHero = false;
 
-    public void SetLanzador(GameObject lanzador)
+    public bool ThrowByHero()
     {
-        this.lanzador = lanzador;
+        return this._throwByHero;
     }
 
-    public GameObject GetLanzador()
-    {
-        return this.lanzador;
+    public void ThrowByHero(bool hero) {
+        this._throwByHero = hero;
     }
+
 }
