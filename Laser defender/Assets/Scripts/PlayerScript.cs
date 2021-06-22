@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float blastPeriod = 0.1f;
     [SerializeField] GameObject destroyAnimation;
 
+    [SerializeField] SoundFxManager soundFxManager;
+
     Coroutine blastCoroutine;
 
     // class variables
@@ -59,9 +61,15 @@ public class PlayerScript : MonoBehaviour
 
     private void DestroyPlayer()
     {
-        Destroy(gameObject);
         var vfx = Instantiate(this.destroyAnimation, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject);
         Destroy(vfx, 1f);
+
+        if (soundFxManager && soundFxManager.HeroDeathAudio) {
+            soundFxManager.PlayClip(soundFxManager.HeroDeathAudio, gameObject.transform.position);
+        } else {
+            Debug.LogError("Sound mananger may is not instantiated or the hero death audio is not added in sound manager");
+        }
     }
 
     // Update is called once per frame
