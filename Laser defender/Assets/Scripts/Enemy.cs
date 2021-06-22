@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxTimeShots = 1f;
     [SerializeField] GameObject laser;
     [SerializeField] float laserSpeed = 4f;
+    [SerializeField] GameObject destroyAnimation;
 
     float countDown;
 
@@ -60,8 +61,14 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            DestroyEnemy();
         }
+    }
+
+    private void DestroyEnemy() {
+        var vfx = Instantiate(this.destroyAnimation, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 
 }

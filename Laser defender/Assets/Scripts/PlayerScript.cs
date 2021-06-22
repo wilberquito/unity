@@ -8,11 +8,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] int health = 200;
     [SerializeField] float padding = 0.5f;
-
     [Header("Player projectile")]
     [SerializeField] GameObject lasser;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float blastPeriod = 0.1f;
+    [SerializeField] GameObject destroyAnimation;
 
     Coroutine blastCoroutine;
 
@@ -53,8 +53,15 @@ public class PlayerScript : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            DestroyPlayer();
         }
+    }
+
+    private void DestroyPlayer()
+    {
+        Destroy(gameObject);
+        var vfx = Instantiate(this.destroyAnimation, gameObject.transform.position, Quaternion.identity);
+        Destroy(vfx, 1f);
     }
 
     // Update is called once per frame
