@@ -38,8 +38,6 @@ public class Level : MonoBehaviour
 
     public void LoadGameScene()
     {
-
-        Debug.Log(gameSceneIdx);
         if (SceneMayExist(gameSceneIdx))
         {
             SceneManager.LoadScene(gameSceneIdx);
@@ -62,7 +60,9 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void QuitGame() { }
+    public void QuitGame() { 
+        Debug.Log("Debugging to quit game");
+    }
 
 
 }
