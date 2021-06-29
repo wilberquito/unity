@@ -70,7 +70,7 @@ public class PlayerScript : MonoBehaviour
         Destroy(vfx, 1f);
 
         if (soundFxManager && soundFxManager.HeroDeathAudio) {
-            soundFxManager.PlayClip(soundFxManager.HeroDeathAudio, gameObject.transform.position, dieVolum);
+            soundFxManager.PlayClip(soundFxManager.HeroDeathAudio, Camera.main.transform.position, dieVolum);
         } else {
             Debug.LogError("Sound mananger may is not instantiated or the hero death audio is not added in sound manager");
         }
