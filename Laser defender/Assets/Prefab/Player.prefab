@@ -102,6 +102,9 @@ MonoBehaviour:
   lasser: {fileID: 1415550342425803475, guid: 8d88a6ff15c083e4b94e87f1817c0115, type: 3}
   projectileSpeed: 10
   blastPeriod: 0.1
+  soundFxManager: {fileID: 11400000, guid: e707ee122ab728441af18d500170b2d3, type: 2}
+  destroyAnimation: {fileID: 0}
+  dieVolum: 1
 --- !u!60 &-6728366788552071618
 PolygonCollider2D:
   m_ObjectHideFlags: 0

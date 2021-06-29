@@ -9,7 +9,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxTimeShots = 1f;
     [SerializeField] GameObject laser;
     [SerializeField] float laserSpeed = 4f;
+
+    [Header("SFX")]
     [SerializeField] GameObject destroyAnimation;
+    [SerializeField] SoundFxManager soundFxManager;
+    [SerializeField] [Range(0f, 1f)] float dieVolum = 1f;
+    [SerializeField] [Range(0f, 1f)] float shootVolum = 1f;
 
     float countDown;
 
@@ -43,6 +48,10 @@ public class Enemy : MonoBehaviour
         var laser = Instantiate(this.laser, gameObject.transform.position, Quaternion.identity);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -laserSpeed);
 
+        if (soundFxManager && soundFxManager.EnemyShootingAudio) {
+            soundFxManager.PlayClip(soundFxManager.EnemyShootingAudio, gameObject.transform.position, shootVolum);
+        }
+
         yield return new WaitForSeconds(0.1f);
     }
 
@@ -65,10 +74,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void DestroyEnemy() {
+    private void DestroyEnemy()
+    {
         var vfx = Instantiate(this.destroyAnimation, gameObject.transform.position, Quaternion.identity);
+        if (soundFxManager && soundFxManager.EnemyDeathAudio)
+        {
+            soundFxManager.PlayClip(soundFxManager.EnemyDeathAudio, gameObject.transform.position, dieVolum);
+        }
+        else
+        {
+            Debug.LogError("Sound mananger may is not instantiated or the enemy death audio is not added in sound manager");
+        }
         Destroy(gameObject);
-        Destroy(gameObject, 1f);
+        Destroy(vfx,1f);
     }
 
 }

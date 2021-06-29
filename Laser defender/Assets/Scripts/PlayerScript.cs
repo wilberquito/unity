@@ -12,11 +12,15 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] GameObject lasser;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float blastPeriod = 0.1f;
-    [SerializeField] GameObject destroyAnimation;
 
     [SerializeField] SoundFxManager soundFxManager;
 
     Coroutine blastCoroutine;
+
+    [Header("SFX")]
+    [SerializeField] GameObject destroyAnimation;
+    [Range(0f, 1f)] [SerializeField] float dieVolum = 1f;
+
 
     // class variables
     float minX, maxX;
@@ -66,7 +70,7 @@ public class PlayerScript : MonoBehaviour
         Destroy(vfx, 1f);
 
         if (soundFxManager && soundFxManager.HeroDeathAudio) {
-            soundFxManager.PlayClip(soundFxManager.HeroDeathAudio, gameObject.transform.position);
+            soundFxManager.PlayClip(soundFxManager.HeroDeathAudio, gameObject.transform.position, dieVolum);
         } else {
             Debug.LogError("Sound mananger may is not instantiated or the hero death audio is not added in sound manager");
         }

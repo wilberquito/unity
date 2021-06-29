@@ -16,7 +16,7 @@ public class SoundFxManager : ScriptableObject
     public AudioClip EnemyDeathAudio { get => enemyDeathAudio; set => enemyDeathAudio = value; }
 
 
-    public void PlayClip(AudioClip clip, Vector3 position) {
-        AudioSource.PlayClipAtPoint(clip, position);
+    public void PlayClip(AudioClip clip, Vector3 position, float volumen = 1f) {
+        AudioSource.PlayClipAtPoint(clip, position, volumen);
     }
 }
