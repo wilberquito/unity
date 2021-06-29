@@ -104,7 +104,7 @@ MonoBehaviour:
   blastPeriod: 0.1
   soundFxManager: {fileID: 11400000, guid: e707ee122ab728441af18d500170b2d3, type: 2}
   destroyAnimation: {fileID: 0}
-  dieVolum: 1
+  dieVolum: 0.183
 --- !u!60 &-6728366788552071618
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -laserSpeed);
 
         if (soundFxManager && soundFxManager.EnemyShootingAudio) {
-            soundFxManager.PlayClip(soundFxManager.EnemyShootingAudio, gameObject.transform.position, shootVolum);
+            soundFxManager.PlayClip(soundFxManager.EnemyShootingAudio, Camera.main.transform.position, shootVolum);
         }
 
         yield return new WaitForSeconds(0.1f);
@@ -79,7 +79,7 @@ public class Enemy : MonoBehaviour
         var vfx = Instantiate(this.destroyAnimation, gameObject.transform.position, Quaternion.identity);
         if (soundFxManager && soundFxManager.EnemyDeathAudio)
         {
-            soundFxManager.PlayClip(soundFxManager.EnemyDeathAudio, gameObject.transform.position, dieVolum);
+            soundFxManager.PlayClip(soundFxManager.EnemyDeathAudio, Camera.main.transform.position, dieVolum);
         }
         else
         {

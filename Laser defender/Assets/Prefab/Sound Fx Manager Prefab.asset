@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroShootingAudio: {fileID: 8300000, guid: b9d1dcd5df416b5429a97195904b9b06, type: 3}
   heroDeathAudio: {fileID: 8300000, guid: b9d1dcd5df416b5429a97195904b9b06, type: 3}
-  enemyShootingAudio: {fileID: 0}
-  enemyDeathAudio: {fileID: 0}
+  enemyShootingAudio: {fileID: 8300000, guid: 95fa25ec41f5bf2449d9daec4d56a118, type: 3}
+  enemyDeathAudio: {fileID: 8300000, guid: f682c2f22380b5a4eb42b3c2a5d5d0f4, type: 3}
