@@ -26,10 +26,22 @@ public class PlayerScript : MonoBehaviour
     float minX, maxX;
     float minY, maxY;
 
+    Level sceneLoader;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        sceneLoader = FindObjectOfType<Level>();
+
+        if (sceneLoader == null)
+        {
+            Debug.LogError("not lvl object found in scene");
+        }
+        else
+        {
+            Debug.Log("lvl object found in scene");
+        }
         SetEdges();
     }
 
@@ -44,14 +56,15 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // si el laser que me llega es diferente al mio
-        var laser = other.gameObject.GetComponent<DemageDealer>();
-        if (laser)
+        // si el dealer que me llega es diferente al mio
+        var dealer = other.gameObject.GetComponent<DemageDealer>();
+        if (dealer)
         {
-            Hit(laser.Demage());
+            Hit(dealer.Demage());
             Destroy(other.gameObject);
         }
     }
+
 
     private void Hit(int demage)
     {
@@ -59,8 +72,15 @@ public class PlayerScript : MonoBehaviour
 
         if (health <= 0)
         {
-            DestroyPlayer();
+            LoadEndGame();
+            Debug.Log("after start routine");
         }
+    }
+
+    private void LoadEndGame()
+    {
+        DestroyPlayer();
+        sceneLoader.LoadGameOver();
     }
 
     private void DestroyPlayer()
@@ -69,9 +89,12 @@ public class PlayerScript : MonoBehaviour
         Destroy(gameObject);
         Destroy(vfx, 1f);
 
-        if (soundFxManager && soundFxManager.HeroDeathAudio) {
+        if (soundFxManager && soundFxManager.HeroDeathAudio)
+        {
             soundFxManager.PlayClip(soundFxManager.HeroDeathAudio, Camera.main.transform.position, dieVolum);
-        } else {
+        }
+        else
+        {
             Debug.LogError("Sound mananger may is not instantiated or the hero death audio is not added in sound manager");
         }
     }

@@ -48,11 +48,19 @@ public class Level : MonoBehaviour
         }
     }
 
+    private IEnumerator CoroutineGameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(gameOverSceneIdx);
+    }
+
     public void LoadGameOver()
     {
+        Debug.Log("execution load game over");
         if (SceneMayExist(gameOverSceneIdx))
         {
-            SceneManager.LoadScene(gameOverSceneIdx);
+            Debug.Log("loading game over scene");
+            StartCoroutine(CoroutineGameOver());
         }
         else
         {
@@ -60,8 +68,9 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void QuitGame() { 
-        Debug.Log("Debugging to quit game");
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 

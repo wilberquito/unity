@@ -48,7 +48,8 @@ public class Enemy : MonoBehaviour
         var laser = Instantiate(this.laser, gameObject.transform.position, Quaternion.identity);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -laserSpeed);
 
-        if (soundFxManager && soundFxManager.EnemyShootingAudio) {
+        if (soundFxManager && soundFxManager.EnemyShootingAudio)
+        {
             soundFxManager.PlayClip(soundFxManager.EnemyShootingAudio, Camera.main.transform.position, shootVolum);
         }
 
@@ -60,23 +61,18 @@ public class Enemy : MonoBehaviour
         var laser = other.gameObject.GetComponent<DemageDealer>();
         if (laser)
         {
-            Hit(laser.Demage());
-            Destroy(other.gameObject);
-        }
-    }
-
-    private void Hit(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            DestroyEnemy();
+            health -= laser.Demage();
+            if (health <= 0)
+            {
+                DestroyEnemy();
+            }
         }
     }
 
     private void DestroyEnemy()
     {
         var vfx = Instantiate(this.destroyAnimation, gameObject.transform.position, Quaternion.identity);
+
         if (soundFxManager && soundFxManager.EnemyDeathAudio)
         {
             soundFxManager.PlayClip(soundFxManager.EnemyDeathAudio, Camera.main.transform.position, dieVolum);
@@ -86,7 +82,7 @@ public class Enemy : MonoBehaviour
             Debug.LogError("Sound mananger may is not instantiated or the enemy death audio is not added in sound manager");
         }
         Destroy(gameObject);
-        Destroy(vfx,1f);
+        Destroy(vfx, 1f);
     }
 
 }

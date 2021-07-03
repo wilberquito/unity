@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 7349571319615779590}
   - component: {fileID: 7349571319615779591}
   - component: {fileID: 7349571319615779585}
-  m_Layer: 0
+  - component: {fileID: 7436268587515854657}
+  - component: {fileID: 615221592633959545}
+  - component: {fileID: -8195523651765157300}
+  - component: {fileID: -5691474552218792970}
+  m_Layer: 3
   m_Name: Big enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,4 +99,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c4194d9bca7341914832bf8eb9916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfig: {fileID: 11400000, guid: 4a8b03b193488f343905f530a55e8d86, type: 2}
+--- !u!60 &7436268587515854657
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349571319615779588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.82, y: 0.84}
+    newSize: {x: 0.82, y: 0.84}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.049999997, y: 0.42}
+      - {x: 0.049999997, y: 0.41}
+      - {x: 0, y: 0.42}
+      - {x: -0.24, y: 0.42}
+      - {x: -0.39, y: 0.38}
+      - {x: -0.41, y: 0.32999998}
+      - {x: -0.41, y: -0.35}
+      - {x: -0.21, y: -0.42}
+      - {x: 0.26999998, y: -0.42}
+      - {x: 0.41, y: -0.22999999}
+      - {x: 0.41, y: 0.31}
+      - {x: 0.28, y: 0.42}
+--- !u!114 &615221592633959545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349571319615779588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f358d98ed673f744d8bebe2fa00d7b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  minTimeShots: 0.4
+  maxTimeShots: 1
+  laser: {fileID: 7887480033719153750, guid: 04c09bf7b4f373a44be81988f785c933, type: 3}
+  laserSpeed: 4
+  destroyAnimation: {fileID: 2566110601422278384, guid: c01e0c95f864da041a4461465a9d55d2, type: 3}
+  soundFxManager: {fileID: 11400000, guid: e707ee122ab728441af18d500170b2d3, type: 2}
+  dieVolum: 1
+  shootVolum: 1
+--- !u!114 &-8195523651765157300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349571319615779588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9fbb0996996ebf40b43c4a299a22d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1000
+--- !u!50 &-5691474552218792970
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349571319615779588}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
