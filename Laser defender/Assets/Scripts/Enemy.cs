@@ -4,11 +4,15 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Status")]
     [SerializeField] int health = 100;
     [SerializeField] float minTimeShots = 0.2f;
     [SerializeField] float maxTimeShots = 1f;
-    [SerializeField] GameObject laser;
     [SerializeField] float laserSpeed = 4f;
+    [SerializeField] int reward = 1;
+
+    [Header("Cached objects")]
+    [SerializeField] GameObject laser;
 
     [Header("SFX")]
     [SerializeField] GameObject destroyAnimation;
@@ -64,9 +68,15 @@ public class Enemy : MonoBehaviour
             health -= laser.Demage();
             if (health <= 0)
             {
+                UpdatePlayerScore();
                 DestroyEnemy();
             }
         }
+    }
+
+    private void UpdatePlayerScore() {
+        var gameSession = FindObjectOfType<GameSession>();
+        gameSession.IncreaseScore(reward);
     }
 
     private void DestroyEnemy()

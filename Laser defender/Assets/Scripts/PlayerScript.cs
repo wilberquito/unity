@@ -33,15 +33,6 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         sceneLoader = FindObjectOfType<Level>();
-
-        if (sceneLoader == null)
-        {
-            Debug.LogError("not lvl object found in scene");
-        }
-        else
-        {
-            Debug.Log("lvl object found in scene");
-        }
         SetEdges();
     }
 
@@ -73,7 +64,6 @@ public class PlayerScript : MonoBehaviour
         if (health <= 0)
         {
             LoadEndGame();
-            Debug.Log("after start routine");
         }
     }
 

@@ -29,6 +29,8 @@ public class Level : MonoBehaviour
         if (SceneMayExist(startMenuSceneIdx))
         {
             SceneManager.LoadScene(startMenuSceneIdx);
+            var gameSession = FindObjectOfType<GameSession>();
+            gameSession.ResetScore();
         }
         else
         {
@@ -38,9 +40,12 @@ public class Level : MonoBehaviour
 
     public void LoadGameScene()
     {
+        Debug.Log("loading game scene");
         if (SceneMayExist(gameSceneIdx))
         {
             SceneManager.LoadScene(gameSceneIdx);
+            var gameSession = FindObjectOfType<GameSession>();
+            gameSession.ShowScore();
         }
         else
         {
@@ -56,10 +61,8 @@ public class Level : MonoBehaviour
 
     public void LoadGameOver()
     {
-        Debug.Log("execution load game over");
         if (SceneMayExist(gameOverSceneIdx))
         {
-            Debug.Log("loading game over scene");
             StartCoroutine(CoroutineGameOver());
         }
         else
