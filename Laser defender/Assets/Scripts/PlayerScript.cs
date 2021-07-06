@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float padding = 0.5f;
     [Header("Player projectile")]
     [SerializeField] GameObject lasser;
-    [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] float projectileSpeed = 30f;
     [SerializeField] float blastPeriod = 0.1f;
 
     [SerializeField] SoundFxManager soundFxManager;
@@ -20,6 +20,9 @@ public class PlayerScript : MonoBehaviour
     [Header("SFX")]
     [SerializeField] GameObject destroyAnimation;
     [Range(0f, 1f)] [SerializeField] float dieVolum = 1f;
+
+    [Header("Cached")]
+    HealthDisplayer displayer;
 
 
     // class variables
@@ -32,8 +35,11 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         sceneLoader = FindObjectOfType<Level>();
-        SetEdges();
+        displayer = GetComponent<HealthDisplayer>();
+        displayer.UpdateDisplayer(health);
+        SetEdges(); */
     }
 
     void SetEdges()
@@ -60,6 +66,7 @@ public class PlayerScript : MonoBehaviour
     private void Hit(int demage)
     {
         health -= demage;
+        displayer.UpdateDisplayer(health);
 
         if (health <= 0)
         {
