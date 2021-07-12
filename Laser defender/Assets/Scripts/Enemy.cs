@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour
         countDown = Random.Range(minTimeShots, maxTimeShots);
     }
 
-
     private void Update()
     {
         TriggerFire();
@@ -75,8 +74,8 @@ public class Enemy : MonoBehaviour
     }
 
     private void UpdatePlayerScore() {
-        var gameSession = FindObjectOfType<GameSession>();
-        gameSession.IncreaseScore(reward);
+        var gameScore = FindObjectOfType<GameScore>();
+        gameScore.IncreaseScore(reward);
     }
 
     private void DestroyEnemy()

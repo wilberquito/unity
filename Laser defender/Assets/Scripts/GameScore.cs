@@ -1,15 +1,18 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
-public class GameSession : MonoBehaviour
+public class GameScore : MonoBehaviour
 {
-    [SerializeField] int score = 0;
-    TextMeshProUGUI text;
-    [SerializeField] string textMeshName = "ScoreText";
+    int score = 0;
+    Text textRef;
+
+    [SerializeField] string scoreTextName = "scoreText";
+
 
     private void Awake()
     {
-        var list = FindObjectsOfType<GameSession>();
+        var list = FindObjectsOfType<GameScore>();
 
         if (list.Length > 1)
         {
@@ -23,49 +26,52 @@ public class GameSession : MonoBehaviour
     }
 
     private void Start() {
-        CacheScoreText();
-        UpdateScoreRender();
+        CacheScoreText(scoreTextName);
     }
 
-    private void CacheScoreText() {
+    public void CacheScoreText(string text) {
         int i = 0;
         bool found = false;
 
-        var references = FindObjectsOfType(typeof(TextMeshProUGUI), true);
+        var references = FindObjectsOfType(typeof(Text), true);
         
         while(i < references.Length && !found) {
-            if (references[i].name == textMeshName) {
+            if (references[i].name == text) {
                 found = true;
-                text = (TextMeshProUGUI) references[i];
+                textRef = (Text) references[i];
             }
             i++;
         }
 
         if (!found) {
             Debug.LogError("Text not in game session");
+        } else {
+            textRef.gameObject.SetActive(true);
+            UpdateScoreTextRef();
         }
     }
 
+    public int ScoreUntilNow() {
+        return this.score;
+    }
     //inicializa el score y no muestra el layout
     public void ResetScore()
     {
-        text.gameObject.SetActive(false);
-        //reseting score
         this.score = 0;
     }
 
-    public void ShowScore() {
-        text.gameObject.SetActive(true);
+    private void UpdateScoreTextRef() {
+
+        if (textRef) {
+            textRef.text = $"Score: {this.score}";
+        }
     }
 
     // n >= 0
     public void IncreaseScore(int n)
     {
         score += n;
-        UpdateScoreRender();
+        UpdateScoreTextRef();
     }
 
-    private void UpdateScoreRender() {
-        text.text = $"Score: {score}";
-    }
 }

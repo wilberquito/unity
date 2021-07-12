@@ -35,11 +35,10 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
         sceneLoader = FindObjectOfType<Level>();
-        displayer = GetComponent<HealthDisplayer>();
-        displayer.UpdateDisplayer(health);
-        SetEdges(); */
+        // displayer = GetComponent<HealthDisplayer>();
+        //displayer.UpdateDisplayer(health);
+        SetEdges();
     }
 
     void SetEdges()
@@ -66,7 +65,7 @@ public class PlayerScript : MonoBehaviour
     private void Hit(int demage)
     {
         health -= demage;
-        displayer.UpdateDisplayer(health);
+        //displayer.UpdateDisplayer(health);
 
         if (health <= 0)
         {
@@ -134,10 +133,12 @@ public class PlayerScript : MonoBehaviour
 
     void MoveEngine()
     {
+
         // to make delta x independent from velocity of frames per second
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         // to make delta x independent from velocity of frames per second
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+
 
         if (deltaX != 0)
         {
@@ -149,9 +150,7 @@ public class PlayerScript : MonoBehaviour
         {
             var y = Mathf.Clamp(transform.position.y + deltaY, minY, maxY);
             transform.position = new Vector2(transform.position.x, y);
-
         }
-
         // logic to horizontal movement
     }
 }

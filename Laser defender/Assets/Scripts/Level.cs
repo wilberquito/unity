@@ -29,8 +29,8 @@ public class Level : MonoBehaviour
         if (SceneMayExist(startMenuSceneIdx))
         {
             SceneManager.LoadScene(startMenuSceneIdx);
-            var gameSession = FindObjectOfType<GameSession>();
-            gameSession.ResetScore();
+            var gameScore = FindObjectOfType<GameScore>();
+            gameScore.ResetScore();
         }
         else
         {
@@ -40,25 +40,15 @@ public class Level : MonoBehaviour
 
     public void LoadGameScene()
     {
-        Debug.Log("loading game scene");
         if (SceneMayExist(gameSceneIdx))
         {
             SceneManager.LoadScene(gameSceneIdx);
-            var gameSession = FindObjectOfType<GameSession>();
-            gameSession.ShowScore();
         }
         else
         {
             Debug.LogError("La escena de game no existe!");
         }
     }
-
-    private IEnumerator CoroutineGameOver()
-    {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(gameOverSceneIdx);
-    }
-
     public void LoadGameOver()
     {
         if (SceneMayExist(gameOverSceneIdx))
@@ -70,6 +60,13 @@ public class Level : MonoBehaviour
             Debug.LogError("La escena de game over no existe!");
         }
     }
+
+    private IEnumerator CoroutineGameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(gameOverSceneIdx);
+    }
+
 
     public void QuitGame()
     {
