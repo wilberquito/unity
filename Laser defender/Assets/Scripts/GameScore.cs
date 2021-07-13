@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameScore : MonoBehaviour
 {
-    int score = 0;
+    [SerializeField] int score = 0;
     Text textRef;
 
     [SerializeField] string scoreTextName = "scoreText";
@@ -28,6 +28,7 @@ public class GameScore : MonoBehaviour
     private void Start() {
         CacheScoreText(scoreTextName);
     }
+
 
     public void CacheScoreText(string text) {
         int i = 0;

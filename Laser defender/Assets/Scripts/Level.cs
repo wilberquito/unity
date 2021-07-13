@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
@@ -24,13 +24,23 @@ public class Level : MonoBehaviour
         }
     }
 
+    private void RemoveObjects() {
+        // borramos el game score object
+        var arrayOfObjects = FindObjectsOfType<GameScore>();
+        var listOfObjects = new List<GameScore>(arrayOfObjects);
+
+        foreach(var ob in listOfObjects) {
+            Destroy(ob.gameObject);
+        }
+    }
+
     public void LoadStarMenu()
     {
         if (SceneMayExist(startMenuSceneIdx))
         {
+            // removing objects that they dont need to exist enymore
+            RemoveObjects();
             SceneManager.LoadScene(startMenuSceneIdx);
-            var gameScore = FindObjectOfType<GameScore>();
-            gameScore.ResetScore();
         }
         else
         {
